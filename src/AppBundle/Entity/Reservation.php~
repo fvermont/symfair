@@ -1,0 +1,73 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Reservation
+ *
+ * @ORM\Table(name="reservation", indexes={@ORM\Index(name="fk_rsr_gnc", columns={"gnc_id"}), @ORM\Index(name="fk_cln_id", columns={"cln_id"}), @ORM\Index(name="FK_num_dep_vol", columns={"vlg_num", "date_dep"})})
+ * @ORM\Entity
+ */
+class Reservation
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbr_places_res", type="integer", nullable=true)
+     */
+    private $nbrPlacesRes;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_reservation", type="date", nullable=true)
+     */
+    private $dateReservation;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rsr_num", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $rsrNum;
+
+    /**
+     * @var \AppBundle\Entity\Agence
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Agence")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="gnc_id", referencedColumnName="gnc_id")
+     * })
+     */
+    private $gnc;
+
+    /**
+     * @var \AppBundle\Entity\Vol
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Vol")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="vlg_num", referencedColumnName="vlg_num"),
+     *   @ORM\JoinColumn(name="date_dep", referencedColumnName="date_dep")
+     * })
+     */
+    private $vlgNum;
+
+    /**
+     * @var \AppBundle\Entity\Client
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="cln_id", referencedColumnName="cln_id")
+     * })
+     */
+    private $cln;
+
+
+}
+

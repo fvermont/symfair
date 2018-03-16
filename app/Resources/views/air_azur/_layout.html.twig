@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        
+        <title>{% block title %}Air-Azur{% endblock %}</title>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('vendor/bootstrap-3.3.7-dist/css/bootstrap.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">      
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('vendor/jquery.min.js') }}"></script>
+            <script src="{{ asset('vendor/bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>            
+        {% endblock %}
+    </head>
+
+    <body>
+        <div class="container">
+            {% block header %}
+                {{ include('air_azur/_header.html.twig') }}
+            {% endblock %}
+            {% block content %}{% endblock %}
+            {% block footer %}
+                {{ include('air_azur/_footer.html.twig') }}
+            {% endblock %}
+        </div>
+        {% block modal_content %}{% endblock %}
+
+        {% block pagejs %}{% endblock %}
+    </body>
+</html>

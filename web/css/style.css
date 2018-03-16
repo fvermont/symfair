@@ -1,0 +1,31 @@
+.container {
+  margin-top: 1em;  
+}
+
+#loginForm {
+  margin: 2em auto; 
+  width: 300px; 
+  padding: 10px;
+  text-align: center; 
+  /*border: solid 1px silver */
+}
+
+div.top{
+  position: center;
+}
+
+.pied{
+  text-align: center;
+  color: silver;
+  margin-top: 5em; 
+}
+
+#reservation_list > table th,  #fly_list > table th{
+  /*text-align: center;*/
+  background-color: whitesmoke;
+}
+
+
+#reservation_list > table td:last-child,  #fly_list > table td:last-child{
+  text-align: center;
+}

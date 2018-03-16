@@ -1,0 +1,61 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Client
+ *
+ * @ORM\Table(name="client")
+ * @ORM\Entity
+ */
+class Client
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=30, nullable=true)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=30, nullable=true)
+     */
+    private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adr_rue", type="string", length=30, nullable=true)
+     */
+    private $adrRue;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adr_cp", type="integer", nullable=true)
+     */
+    private $adrCp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adr_ville", type="string", length=30, nullable=true)
+     */
+    private $adrVille;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="cln_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $clnId;
+
+
+}
+

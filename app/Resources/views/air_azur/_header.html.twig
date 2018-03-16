@@ -1,0 +1,10 @@
+{% block header %}
+<nav class="navbar navbar-default">
+  <div class="navbar-header" style="margin-right:20px">
+      <img alt="Brand" src="{{ asset('img/banniere.png') }}">
+  </div>  
+  {% block menu %}
+    {{ include('air_azur/_menu.html.twig') }}
+  {% endblock %}
+</nav>
+{% endblock %}

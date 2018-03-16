@@ -1,0 +1,25 @@
+{% extends 'air_azur/_layout.html.twig' %}
+
+{% block header %}
+<center>  
+    <img src="{{ asset('img/banniere.png') }}" alt="logo">
+</center>
+{% endblock %}
+
+{% block content %}
+<form id="loginForm" method="POST" action="{{ path('user_login') }}">       
+    <input type="text" class="form-control" name="user" placeholder="Login" />
+    <br>
+    <input type="password" class="form-control" name="password" placeholder="Mot de passe" />        
+    <br>                       
+    <input type="submit" class="btn btn-primary" value="Connexion" />
+    <br>
+    {% for message in app.flashes('warning') %}
+        <br>
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+</form>    
+{% endblock %}
+
